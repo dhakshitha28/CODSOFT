@@ -1,13 +1,44 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import java.util.Random;
+import java.util.Scanner;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+class Main{
+    public static void main(String[] args){
+            Random random = new Random();
+            int num = random.nextInt(100) + 1;
+
+            int attempt=0;
+
+            System.out.println("Enter the number between 1 and 100");
+            Scanner sc = new Scanner(System.in);
+            int userGuessNumber=Integer.parseInt(sc.nextLine());
+
+            while(userGuessNumber!=num){
+                attempt++;
+                if(userGuessNumber>num){
+                    System.out.println("Your guess Number is too high");
+                    System.out.print("Guess the another number:" );
+                    userGuessNumber=Integer.parseInt(sc.nextLine());
+                }
+                else{
+                    System.out.println("Your guess Number is too low");
+                    System.out.print("Guess the another number:" );
+                    userGuessNumber=Integer.parseInt(sc.nextLine());
+                }
+            }
+
+
+            if(userGuessNumber==num){
+                attempt++;
+                System.out.println();
+                System.out.println("*********************************");
+                System.out.println("You guessed the correct number");
+                System.out.println("*********************************");
+                int value=100 - (attempt - 1) * 10;
+                System.out.println("1.Score:"+ value);
+                System.out.println("2.Guess:"+ attempt);
+                System.out.println("3.Correct Ans: "+ num);
+
+            }
+
     }
 }
