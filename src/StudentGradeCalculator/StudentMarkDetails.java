@@ -1,8 +1,6 @@
 package StudentGradeCalculator;
 
-import javax.print.attribute.standard.PrinterMakeAndModel;
-
-public class Marks {
+public class StudentMarkDetails {
 
     private String studentName;
     private int tamilMarks;
@@ -11,7 +9,7 @@ public class Marks {
     private int scienceMarks;
     private int socialMarks;
 
-    public Marks(String studentName,int tamilMarks, int englishMarks, int mathMarks, int scienceMarks, int socialMarks) {
+    public StudentMarkDetails(String studentName, int tamilMarks, int englishMarks, int mathMarks, int scienceMarks, int socialMarks) {
         this.studentName = studentName;
         this.tamilMarks = tamilMarks;
         this.englishMark = englishMarks;
