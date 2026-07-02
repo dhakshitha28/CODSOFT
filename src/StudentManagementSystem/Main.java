@@ -19,7 +19,73 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter your choice:");
-        int choice=
+        int choice=Integer.parseInt(scanner.nextLine());
+        if (choice==1) {
+            System.out.println("Enter Student Name:");
+            String studentName = scanner.nextLine();
+            System.out.println("Enter Roll No:");
+            String rollNo = scanner.nextLine();
+            System.out.println("Enter Class Code:");
+            String classCode = scanner.nextLine();
+            System.out.println("Enter Grade:");
+            char grade = scanner.nextLine().charAt(0);
+            System.out.println("Enter Age:");
+            int age = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter Address:");
+            String address = scanner.nextLine();
+
+            Student student = new Student();
+            student.setStudentName(studentName);
+            student.setRollNo(rollNo);
+            student.setClassCode(classCode);
+            student.setGrade(grade);
+            student.setAge(age);
+            student.setAddress(address);
+        }
+
+        else if (choice==2) {
+            System.out.println("Enter Student Name:");
+            String studentName = scanner.nextLine();
+            System.out.println("Enter Roll No:");
+            String rollNo = scanner.nextLine();
+            System.out.println("Enter Class Code:");
+            String classCode = scanner.nextLine();
+            System.out.println("Enter Grade:");
+            char grade = scanner.nextLine().charAt(0);
+            System.out.println("Enter Age:");
+            int age = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter Address:");
+            String address = scanner.nextLine();
+            Student student = new Student();
+            student.setStudentName(studentName);
+            student.setRollNo(rollNo);
+            student.setClassCode(classCode);
+            student.setGrade(grade);
+            student.setAge(age);
+            student.setAddress(address);
+        }
+        else if (choice==3) {
+            System.out.println("Enter Student Name:");
+            String studentName = scanner.nextLine();
+            System.out.println("Enter Roll No:");
+            String rollNo = scanner.nextLine();
+            System.out.println("Enter Class Code:");
+            String classCode = scanner.nextLine();
+            System.out.println("Enter Grade:");
+            char grade = scanner.nextLine().charAt(0);
+            System.out.println("Enter Age:");
+            int age = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter Address:");
+            String address = scanner.nextLine();
+            Student student = new Student();
+            student.setStudentName(studentName);
+            student.setRollNo(rollNo);
+            student.setClassCode(classCode);
+            student.setGrade(grade);
+            student.setAge(age);
+            student.setAddress(address);
+
+        }
 
 
     }
