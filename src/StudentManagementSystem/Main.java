@@ -87,6 +87,23 @@ public class Main {
 
         }
 
+        else if (choice==4) {
+            System.out.println("Enter Student Name:");
+            String studentName = scanner.nextLine();
+            System.out.println("Enter Roll No:");
+            String rollNo = scanner.nextLine();
+            System.out.println("Enter Class Code:");
+            String classCode = scanner.nextLine();
+            System.out.println("Enter Grade:");
+            char grade = scanner.nextLine().charAt(0);
+            System.out.println("Enter Age:");
+            int age = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter Address:");
+            String address = scanner.nextLine();'
+        Student student = new Student();
+            student.setStudentName(studentName);
+        }
+
 
     }
 }
