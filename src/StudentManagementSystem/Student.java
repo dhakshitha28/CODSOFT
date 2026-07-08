@@ -4,9 +4,18 @@ public class Student {
     private String studentName;
     private String rollNo;
     private String classCode;
-    private char grade;
-    private int age;
+    private String grade;
+    private String age;
     private String address;
+
+    Student(String studentName,String rollNo,String classCode,String grade,String age,String address){
+        this.studentName=studentName;
+        this.rollNo=rollNo;
+        this.classCode=classCode;
+        this.grade=grade;
+        this.age=age;
+        this.address=address;
+    }
 
 
     public String getAddress() {
@@ -41,19 +50,19 @@ public class Student {
         this.classCode = classCode;
     }
 
-    public char getGrade() {
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(char grade) {
+    public void setGrade(String  grade) {
         this.grade = grade;
     }
 
-    public int getAge() {
+    public String  getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 }
