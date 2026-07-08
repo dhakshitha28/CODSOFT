@@ -20,8 +20,8 @@ public class Main {
             System.out.println("1. Add Student");
             System.out.println("2. Update Student");
             System.out.println("3. Delete Student");
-            System.out.println("4. Find Student");
-            System.out.println("5. Find All Students");
+            System.out.println("4. Find All Students");
+
 
             Scanner scanner = new Scanner(System.in);
 
@@ -106,61 +106,128 @@ public class Main {
 
             if (choice == 2) {
 
-                System.out.println("\n Update Student Information");
-                System.out.println("\n If you want to exist from the Student update task typ EXIT");
                 while (true) {
-                    System.out.println("\nEnter the Roll No of the Student you want to update:");
+
+                    System.out.print("Enter Roll No (EXIT to quit): ");
                     String rollNo = scanner.nextLine();
+
+                    if (rollNo.equalsIgnoreCase("EXIT")) {
+                        System.out.println("Successfully Exited from Student Update");
+                        break;      // Choice 2 exit
+                    }
+
+                    Student student = null;
 
                     for (Student s : studentList) {
                         if (s.getRollNo().equals(rollNo)) {
-                            // Update student information
-                            while (true) {
-                                System.out.println("Which details you want to update?");
-                                System.out.println("1. Student Name");
-                                System.out.println("2. Student Class Code");
-                                System.out.println("3. Student Grade");
-                                System.out.println("4. Student Age");
-                                System.out.println("5. Student Address");
-                                System.out.print("Enter your choice:");
-                                int updateChoice = Integer.parseInt(scanner.nextLine());
-                                if (updateChoice == 1) {
-                                    System.out.print("Enter new Student Name:");
-                                    String newStudentName = scanner.nextLine();
-                                    s.setStudentName(newStudentName);
-                                    break;
-                                } else if (updateChoice == 2) {
-                                    System.out.print("Enter new Student Class Code:");
-                                    String newStudentClassCode = scanner.nextLine();
-                                    s.setClassCode(newStudentClassCode);
-                                    break;
-                                } else if (updateChoice == 3) {
-                                    System.out.print("Enter new Student Grade:");
-                                    String newStudentGrade = scanner.nextLine();
-                                    s.setGrade(newStudentGrade);
-                                    break;
-                                } else if (updateChoice == 4) {
-                                    System.out.print("Enter new Student Age:");
-                                    String newStudentAge = scanner.nextLine();
-                                    s.setAge(newStudentAge);
-                                    break;
-                                } else if (updateChoice == 5) {
-                                    System.out.print("Enter new Student Address:");
-                                    String newStudentAddress = scanner.nextLine();
-                                    s.setAddress(newStudentAddress);
-                                    break;
-                                } else {
-                                    System.out.println("Invalid choice!");
-                                }
-                            }
+                            student = s;
+                            break;
                         }
-                        else{
-                            System.out.println("Student name is not available!");
+                    }
+
+                    if (student == null) {
+                        System.out.println("Student not found!");
+                        continue;
+                    }
+
+                    while (true) {
+
+                        System.out.println("1.Name");
+                        System.out.println("2.Class");
+                        System.out.println("3.Grade");
+                        System.out.println("4.Age");
+                        System.out.println("5.Address");
+                        System.out.println("6.Completed");
+
+                        int updateChoice = Integer.parseInt(scanner.nextLine());
+
+                        switch (updateChoice) {
+                            case 1:
+                                System.out.print("New Name: ");
+                                student.setStudentName(scanner.nextLine());
+                                break;
+
+                            case 2:
+                                System.out.print("New Class: ");
+                                student.setClassCode(scanner.nextLine());
+                                break;
+
+                            case 3:
+                                System.out.print("New Grade: ");
+                                student.setGrade(scanner.nextLine());
+                                break;
+
+                            case 4:
+                                System.out.print("New Age: ");
+                                student.setAge(scanner.nextLine());
+                                break;
+
+                            case 5:
+                                System.out.print("New Address: ");
+                                student.setAddress(scanner.nextLine());
+                                break;
+
+                            case 6:
+                                System.out.println("Student Updated Successfully.");
+                                break;
+
+                            default:
+                                System.out.println("Invalid Choice");
+                                continue;
+                        }
+
+                        if (updateChoice == 6) {
+                            break;   // update menu exit
                         }
                     }
                 }
+            }
+            if (choice == 3) {
+                while (true) {
 
+                    try {
 
+                        System.out.print("Enter Student Roll No to Delete (Type EXIT to quit): ");
+                        String rollNo = scanner.nextLine();
+
+                        if (rollNo.equalsIgnoreCase("EXIT")) {
+                            throw new Exception();
+                        }
+
+                        boolean found = false;
+
+                        for (int i = 0; i < studentList.size(); i++) {
+
+                            if (studentList.get(i).getRollNo().equals(rollNo)) {
+
+                                studentList.remove(i);
+                                System.out.println("Student deleted successfully.");
+                                found = true;
+                                break;
+                            }
+                        }
+
+                        if (!found) {
+                            System.out.println("Student not found.");
+                        }
+
+                    } catch (Exception e) {
+
+                        System.out.println("Successfully Exited from Student Delete Task");
+                        break;
+                    }
+                }
+            }
+
+            if (choice == 4) {
+                for(Student s : studentList) {
+                    System.out.println("StudentName"+s.getStudentName());
+                    System.out.println("ClassCode"+s.getClassCode());
+                    System.out.println("RollNo"+s.getRollNo());
+                    System.out.println("Grade"+s.getGrade());
+                    System.out.println("Age"+s.getAge());
+                    System.out.println("Address"+s.getAddress());
+                }
             }
         }
     }
