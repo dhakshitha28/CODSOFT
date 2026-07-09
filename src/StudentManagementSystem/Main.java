@@ -28,7 +28,7 @@ public class Main {
 
             System.out.print("\nEnter your choice to perform the task:");
             int choice = Integer.parseInt(scanner.nextLine());
-            StudentManagement sm = new StudentManagement();
+            StudentManagementInterface sm = new StudentManagement();
 
             if (choice == 1) {
                sm.addStudent(studentList, scanner);
